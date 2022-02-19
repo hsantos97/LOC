@@ -1,14 +1,12 @@
 la t1, msg
-li t3, 0 # contador
-li t4, 5 # tamanho
+li t3, 0x0a # guardando "\n"
 
 loop:
     lb t2, 0(t1)
-    bge t3, t4, print # contador =  tamanho
+    beq t2, t3, print 
     addi t2, t2, 0x20 # somando os 32 bits para converter
     sb t2, 0(t1)
     addi t1, t1, 1
-    addi t3, t3, 1 # cont += 1
     j loop
       
 #parametros para write
